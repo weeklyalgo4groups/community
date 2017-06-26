@@ -8,7 +8,8 @@
   },
   "watch": [
     "index.js",
-    "src"
+    "src",
+    "config"
   ],
   "env": {
     "NODE_ENV": "development"
