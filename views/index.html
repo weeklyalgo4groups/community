@@ -1,5 +1,9 @@
 {% extends "layout/page.html" %}
 
 {% block content %}
-Welcome to Community!
+<div id="main" class="row center-xs">
+  <div class="col-xs-11">
+    {% include "modules/banner.html" ignore missing %}
+  </div>
+</div>
 {% endblock %}

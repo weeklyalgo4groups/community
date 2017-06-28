@@ -8,7 +8,7 @@ server.connection(runtime.connection)
 // Load plugins and routes
 server.register(plugins, () => {
 
-  server.views(runtime.views)
+  server.views(runtime.plugin.visionOptions.views)
 
   server.start(err => {
 

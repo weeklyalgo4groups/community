@@ -1,8 +1,9 @@
 const good = require('good')
-const goodOptions = require('../../config/runtime.js').goodOptions
+const plugin = require('../../config/runtime').plugin
+
 module.exports = {
   register: {
     register: good,
-    options: goodOptions
+    options: plugin.goodOptions || {}
   }
 }
