@@ -23,11 +23,27 @@ const views = {
   path: resolve(__dirname, '../views')
 }
 
+const goodOptions = {
+  reporters: {
+    console: [{
+      module: 'good-squeeze',
+      name: 'Squeeze',
+      args: [{
+        log: '*',
+        response: '*'
+      }]
+    }, {
+      module: 'good-console'
+    }, 'stdout']
+  }
+}
+
 module.exports = {
   connection: {
     host: '0.0.0.0',
     port: 3000
   },
   views,
+  goodOptions,
   assets: resolve(__dirname, '../assets')
 }

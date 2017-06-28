@@ -1,21 +1,8 @@
 const good = require('good')
-
+const goodOptions = require('../../config/runtime.js').goodOptions
 module.exports = {
   register: {
     register: good,
-    options: {
-      reporters: {
-        console: [{
-          module: 'good-squeeze',
-          name: 'Squeeze',
-          args: [{
-            log: '*',
-            response: '*'
-          }]
-        }, {
-          module: 'good-console'
-        }, 'stdout']
-      }
-    }
+    options: goodOptions
   }
 }
