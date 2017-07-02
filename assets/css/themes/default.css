@@ -1,0 +1,71 @@
+body {
+  --color: #222527;
+  --primary-color: #eb5424;
+
+  --border-color: #ddd;
+  --box-shadow-color: rgba(0, 0, 0, .05);
+
+  color: var(--color);
+  background-color: #e9eaed;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+button[type=submit] {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+button[disabled] {
+  background: var(--border-color);
+}
+
+input {
+  border-color: var(--border-color);
+}
+
+input:focus {
+  border-color: var(--primary-color);
+}
+
+a:hover,
+button:hover {
+  opacity: 0.8;
+}
+
+.board {
+  background: #fff;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  box-shadow: 0 1px 1px var(--box-shadow-color);
+}
+
+.panel-header {
+  color: #777;
+  background: #fafafa;
+  border-color: #e5e6e9 #dfe0e4 #eee;
+}
+
+.topic-entry {
+  border-bottom-color: #f0f0f0;
+}
+
+.topic-count-link {
+  color: #fff;
+  background: #cfd3e6;
+}
+
+.topic-info,
+.topic-info a {
+  color: #aba8a6;
+  font-size: 12px;
+}
+
+.topic-title a {
+  color: var(--color);
+}
+
+.topic-category {
+  color: #777;
+}

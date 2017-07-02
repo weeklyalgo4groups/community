@@ -1,6 +1,16 @@
 {% extends "layout/default.html" %}
 
+{% block head %}
+  <script src="//cdn.bootcss.com/lodash.js/4.17.4/lodash.min.js"></script>
+  <script src="//cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
+  <script src="/js/common.js?v={{ version }}"></script>
+{% endblock %}
+
 {% block body %}
-{% include "components/header.html" %}
-{% block content %}{% endblock %}
+  {% include "components/header.html" %}
+  <div class="row center-xs">
+    <div class="col-xs-11">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
 {% endblock %}

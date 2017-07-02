@@ -1,5 +1,5 @@
 const hapi = require('hapi')
-const plugins = require('./plugins')
+const plugins = require('./plugin-loader')
 const runtime = require('../config/runtime')
 
 const server = new hapi.Server()
@@ -7,8 +7,6 @@ const server = new hapi.Server()
 server.connection(runtime.connection)
 // Load plugins and routes
 server.register(plugins, () => {
-
-  server.views(runtime.plugin.visionOptions.views)
 
   server.start(err => {
 
