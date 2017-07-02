@@ -1,43 +1,30 @@
 const resolve = require('path').resolve
-const nunjucks = require('nunjucks')
 const pkg = require('../package.json')
 
-// For vision plugin
-exports.visionOptions = {
-  global: {
-    title: 'Community',
-    version: pkg.version
-  },
-  views: {
-    engines: {
-      html: {
-        compile: (src, options) => {
-
-          const template = nunjucks.compile(src, options.environment)
-
-          return context => template.render(context)
-        },
-        prepare: (options, next) => {
-
-          const env = nunjucks.configure(options.path, {
-            watch: process.NODE_ENV === 'production' ? true : false
-          })
-
-          for (let key in exports.visionOptions.global) {
-            env.addGlobal(key, exports.visionOptions.global[key]) 
-          }
-          options.compileOptions.environment = env
-
-          return next()
-        }
-      }
-    },
-    path: resolve(__dirname, '../views')
-  }
+// For plugin-loader
+exports.plugin = {
+  path: resolve(__dirname, '../src/plugins'),
+  plugins: '**/*.js'
 }
 
-// For good plugin
-exports.goodOptions = {
+// For view plugin
+exports.view = {
+  vars: {
+    title: 'Community',
+    version: pkg.version,
+    theme: 'default'
+  },
+  path: resolve(__dirname, '../views')
+}
+
+// For router plugin
+exports.router = {
+  cwd: resolve(__dirname, '../src/routes'),
+  routes: '**/*.js'
+}
+
+// For log plugin
+exports.log = {
   reporters: {
     console: [{
       module: 'good-squeeze',
@@ -49,5 +36,22 @@ exports.goodOptions = {
     }, {
       module: 'good-console'
     }, 'stdout']
+  }
+}
+
+// For db plugin
+exports.db = {
+  url: 'mongodb://localhost:27017/community',
+  settings: {
+    poolSize: 10
+  },
+  decorate: true
+}
+
+// For auth plugin
+exports.auth = {
+  key: 'nevershareyousecret',
+  verifyOptions: {
+    algorithm: ['HS256']
   }
 }

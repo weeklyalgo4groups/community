@@ -1,0 +1,42 @@
+{% macro template(topic) %}
+  <div class="topic">
+    <div class="topic-avatar">
+      <a href="/account/id/{{ topic.account.id }}" title="{{ topic.account.username }}">
+        <img class="topic-avatar-image" src="{{ topic.account.avatar }}">
+      </a>
+    </div>
+    <div class="topic-infos">
+      <div class="topic-title">
+        <a href="/topics/{{ topic.id }}" title="{{ topic.title }}">
+          <span class="topic-category">{{ topic.category }}</span>
+          {{ topic.title }}
+        </a>
+      </div>
+      <div class="topic-info">
+        <a href="/account/id/{{ topic.account.id }}" class="topic-username">
+          {{ topic.account.username }}
+        </a>
+        <span>
+          最后由
+          <a href="/account/id/{{ topic.lastReply.account.id }}">{{ topic.lastReply.account.username }}</a>
+          回复于
+          <abbr class="topic-timeago" title="{{ topic.lastReply.timeago }}">{{ topic.lastReply.timeago }}</abbr>
+        </span>
+      </div>
+    </div>
+    <div class="topic-count">
+      <a href="/topics/{{ topic.id }}#reply-{{ topic.lastReply.id }}"
+        class="topic-count-link">{{ topic.replyCount }}</a>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro list(topics=[]) %}
+  <ul class="topic-group">
+  {% for topic in topics %}
+    <li class="topic-entry">
+      {{ template(topic) }}
+    </li>
+  {% endfor %}
+  </ul>
+{% endmacro %}

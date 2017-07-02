@@ -1,0 +1,22 @@
+{% macro template(fields, action="/", method="post") %}
+  <form id="js-form" method="{{ method }}" action="{{ action }}">
+    {% for field in fields %}
+      <div class="row field">
+        <label class="col-xs-4" for="{{ field.name }}">
+          {% if field.required %}
+            <span style="color:red;">*</span>
+          {% endif %}
+          {{ field.label }}
+        </label>
+        <div class="col-xs-6 col-sm-5 col-md-4">
+          <input id="{{ field.name }}"
+                 type="{{ field.type }}"
+                 name="{{ field.name }}"
+                 required="{{ field.required }}"
+                 placeholder="{{ field.placeholder }}">
+        </div>
+      </div>
+    {% endfor %}
+    {{ caller() }}
+  </form>
+{% endmacro %}

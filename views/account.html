@@ -1,0 +1,25 @@
+{% extends "layout/page.html" %}
+
+{% set actionType = {
+  ACCOUNT: '/account',
+  SIGN_UP: '/account/sign_up',
+  SIGN_IN: '/account/sign_in'
+}%}
+
+{% block content %}
+{% if action === actionType.ACCOUNT -%}
+  <p>暂无内容</p>
+{% else %}
+  <div class="row center-xs">
+    <div class="col-xs-11 col-sm-9 col-md-7">
+      {% if action === actionType.SIGN_UP %}
+        {% include "components/sign-up.html" %}
+      {% elif action === actionType.SIGN_IN %}
+        {% include "components/sign-in.html" %}
+      {% endif %}
+    </div>
+  </div>
+{%- endif %}
+
+<script src="/js/account.js?v={{ version }}"></script>
+{% endblock %}

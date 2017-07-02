@@ -1,12 +1,7 @@
 const runtime = require('../../config/runtime')
 
-/**
- * Index route handler
- * @param {Object} request
- * @param {Object} reply
- * @return HTML
- */
-function index(request, reply) {
+// GET /
+function getIndex(request, reply) {
 
   return reply.view('index')
 }
@@ -23,7 +18,7 @@ const resource = {
 module.exports = [{
   method: 'GET',
   path: '/',
-  handler: index
+  handler: getIndex
 }, {
   method: 'GET',
   path: '/{resource*}',

@@ -1,0 +1,36 @@
+{% import "macros/panel.html" as panel %}
+{% import "macros/form.html" as form %}
+
+{% call panel.template() %}
+
+{% call panel.header() -%}
+  <span>欢迎来到社区 / 登录</span>
+{%- endcall %}
+
+{% call panel.content() -%}
+  {% call form.template([{
+      name: "username",
+      type: "text",
+      label: "账号",
+      required: true
+    }, {
+      name: "password",
+      type: "password",
+      label: "密码",
+      required: true
+    }],
+    "/account/sign_in")
+  -%}
+    <div class="row center-xs field">
+      <button type="submit" id="js-submit" disabled="disabled">登  录</button>
+    </div>
+    <div class="row center-xs field">
+      <div class="col-xs">
+        <a href="#" target="_blank">忘记密码？</a>
+        <div>没有账号？<a href="/account/sign_up">立即注册</a></div>
+      </div>
+    </div>
+  {%- endcall %}
+{%- endcall %}
+
+{% endcall %}
