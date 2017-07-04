@@ -1,0 +1,38 @@
+{% extends "layout/page.html" %}
+{% import "macros/panel.html" as panel %}
+{% import "macros/board.html" as board %}
+{% import "macros/topic.html" as topic %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-xs-9">
+      {% call panel.template() %}
+        {% call panel.header() -%}
+          <ul class="clearfix">
+            <li class="pull-left theme-tab"><a href="#">全部</a></li>
+            <li class="pull-left theme-tab active"><a href="#">精华</a></li>
+            <li class="pull-left theme-tab"><a href="#">分享</a></li>
+            <li class="pull-left theme-tab"><a href="#">问答</a></li>
+            <li class="pull-left theme-tab"><a href="#">招聘</a></li>
+          </ul>
+        {%- endcall %}
+
+        {% call panel.content() -%}
+          {{ topic.list(topics) }}
+        {%- endcall %}
+      {% endcall %}
+    </div>
+    <div class="col-xs-3">
+      {% call board.template() -%}
+        <div><button class="theme-button full-width">发布新话题</button></div>
+      {% endcall %}
+      {% call panel.template() %}
+        {% call panel.header() -%}小贴士{%- endcall %}
+
+        {% call panel.content() -%}
+          <div>使用 CoffeeScript 和 Sass 来写 JavaScript 和 CSS 提高开发效率</div>
+        {%- endcall %}
+      {% endcall %}
+    </div>
+  </div>
+{% endblock %}

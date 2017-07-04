@@ -35,6 +35,22 @@ button:hover {
   opacity: 0.8;
 }
 
+.theme-button,
+.theme-tab.active {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+.theme-tab.active * {
+  color: inherit;
+}
+
+.theme-tab {
+  margin-left: 1em;
+  padding: var(--border-radius) calc(var(--border-radius)*2);
+  border-radius: var(--border-radius);
+}
+
 .board {
   background: #fff;
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
