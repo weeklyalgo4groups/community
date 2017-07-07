@@ -1,5 +1,7 @@
 const Boom = require('boom')
-const Joi = require('joi')
+const signUpScheme = require('../schemas/account.js').signUpScheme
+const signInScheme = require('../schemas/account.js').signInScheme
+
 
 const actionType = {
   ACCOUNT: '/account',
@@ -49,15 +51,6 @@ function postSignIn(request, reply) {
   })
 }
 
-const common = {
-  username: Joi.string().min(2).max(16).required(),
-  password: Joi.string().min(6).max(32).required()
-}
-const signUpScheme = Joi.object(Object.assign({
-  repassword: common.password,
-  email: Joi.string().min(5).required()
-}, common))
-const signInScheme = Joi.object(common)
 
 module.exports = [{
   method: 'GET',
