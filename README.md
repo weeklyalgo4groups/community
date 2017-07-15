@@ -1,12 +1,13 @@
-# community
-A programming community
+# 社区
+一个好玩的技术社区
 
-# dev
-## using docker
-- chanage ./config/plugin.js `mongodb://localhost:27017/community` to `mongodb://mongo:27017/community`
-- `docker pull node:8-alpine`
-- `bash rundev.sh`
+# 开发进度
+[ ] 登录注册界面
 
-# TODO
-![todo](./doc/community.jpg)
+[ ] 算法区
 
+[ ] 论坛区
+
+[ ] 论坛首页
+
+其它功能待续...
