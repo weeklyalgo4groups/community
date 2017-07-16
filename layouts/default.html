@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html class="cm-root" lang="zh-cmn-Hans">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="Chrome=1, IE=edge">
   <title>{{ title }}</title>
-  <link href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet">
-  <link href="//cdn.bootcss.com/flexboxgrid/6.3.1/flexboxgrid.min.css" rel="stylesheet">
-  <link href="/css/common.css?v={{ version }}" rel="stylesheet">
-  <link href="/css/themes/{{ theme }}.css?v={{ version }}" rel="stylesheet">
+  <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ static }}/css/community.min.css?v={{ version }}" rel="stylesheet">
   {% block head %}{% endblock %}
 </head>
 
-<body id="root">
+<body class="cm-body">
   {% block body %}{% endblock %}
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+  <script src="//cdn.bootcss.com/tether/1.4.0/js/tether.min.js"></script>
+  <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+  {% block scripts %}{% endblock %}
 </body>
 
 </html>
