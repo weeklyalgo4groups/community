@@ -1,0 +1,21 @@
+{% import "macros/board.html" as board %}
+
+{% macro template() %}
+  <div class="panel">
+    {{ caller() }}
+  </div>
+{% endmacro %}
+
+{% macro header() %}
+  <div class="panel-header">
+    {{ caller() }}
+  </div>
+{% endmacro %}
+
+{% macro content() %}
+  <div class="panel-content">
+    {% call board.template() -%}
+      {{ caller() }}
+    {%- endcall %}
+  </div>
+{% endmacro %}

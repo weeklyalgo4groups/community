@@ -1,0 +1,68 @@
+<header class="row center-xs">
+  <div class="col-xs-11">
+    <div class="pull-left">
+      <a href="/" class="header-brand"><span class="header-brand__mark">C</span>ommunity</a>
+    </div>
+    <nav class="pull-left">
+      <ul class="clearfix">
+        <li class="pull-left"><a class="navbar-item__hover" href="/topics">论坛</a></li>
+        <li class="pull-left"><a class="navbar-item__hover" href="/algorithms">算法</a></li>
+        <li class="pull-left"><a class="navbar-item__hover" href="/posts">文章</a></li>
+        <li class="pull-left"><a class="navbar-item__hover" href="/geeks">极客</a></li>
+        <li class="pull-left"><a class="navbar-item__hover" href="/games">比赛</a></li>
+        <li class="pull-left"><a class="navbar-item__hover" href="/resources">资源</a></li>
+      </ul>
+    </nav>
+    <ul class="pull-right">
+      {% if isOnline %}
+        <li class="pull-left"><a class="navbar-item" href="/account">用户</a></li>
+      {% else %}
+        <li class="pull-left"><a class="navbar-item" href="/account/sign_up">注册</a></li>
+        <li class="pull-left"><a class="navbar-item" href="/account/sign_in">登录</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <style scoped>
+    header {
+      margin-bottom: 1rem;
+      height: 50px;
+      line-height: 50px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+    }
+
+    .header-brand,
+    .navbar-item,
+    .navbar-item__hover {
+      display: block;
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .header-brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .navbar-item,
+    .navbar-item__hover {
+      padding: 0 1em;
+      height: 50px;
+      box-sizing: border-box;
+      border-bottom: 3px solid #fff;
+      transition: all .2s ease-in-out;
+    }
+
+    .header-brand__mark,
+    .navbar-item:hover,
+    .navbar-item__hover:hover {
+      color: #eb5424;
+    }
+
+    .navbar-item__hover:hover {
+      border-bottom-color: #eb5424;
+    }
+  </style>
+</header>
