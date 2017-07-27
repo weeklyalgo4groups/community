@@ -8,5 +8,5 @@ A programming community
 - `bash rundev.sh`
 
 # TODO
-![todo](./doc/community.jpg)
+![todo](./docs/community.jpg)
 
